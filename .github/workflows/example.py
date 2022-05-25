@@ -2,8 +2,11 @@ import os
 
 def required_variables():
     print("Finding environment vars")
-    if os.environ.get("SECRET_AZURE_TOKEN"):
+    token = os.environ.get("SECRET_AZURE_TOKEN")
+    if token:
         print("Found $SECRET_AZURE_TOKEN environment variable!")
+        if len(token) == 0:
+            raise RuntimeError("SECRET_AZURE_TOKEN environment variable exists, but is empty")
     else:
         print("No dice! will not be able to work without setting $SECRET_AZURE_TOKEN")
         raise RuntimeError("set env SECRET_AZURE_TOKEN")

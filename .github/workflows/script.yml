@@ -17,4 +17,4 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: python ${{ env.GITHUB_WORKSPACE }}/.github/workflows/example.py
+        run: python .github/workflows/example.py
